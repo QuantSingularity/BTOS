@@ -1,0 +1,17 @@
+{
+  "seed": 42,
+  "data": [{ "symbol": "SYN", "path": "data/syn.btosd", "period_sec": 86400 }],
+  "strategy": {
+    "name": "ma_crossover",
+    "symbol": "SYN",
+    "params": { "fast": 5, "slow": 20, "quantity": 100 }
+  },
+  "execution": {
+    "latency_ms": 1,
+    "slippage_bps": 1.0,
+    "commission_per_share": 0.005
+  },
+  "risk": { "max_gross_leverage": 3.0, "max_drawdown_kill": 0.5 },
+  "portfolio": { "initial_capital": 1000000.0, "base_currency": "USD" },
+  "analytics": { "periods_per_year": 252 }
+}

@@ -1,0 +1,19 @@
+{
+  "seed": 42,
+  "data": [{ "symbol": "SYN", "path": "data/syn.btosd", "period_sec": 86400 }],
+  "strategy": {
+    "name": "ma_crossover",
+    "symbol": "SYN",
+    "params": { "quantity": 100 }
+  },
+  "optimize": {
+    "method": "random",
+    "metric": "sharpe",
+    "budget": 16,
+    "space": [
+      { "name": "fast", "lo": 3, "hi": 15, "step": 1 },
+      { "name": "slow", "lo": 20, "hi": 60, "step": 5 }
+    ]
+  },
+  "portfolio": { "initial_capital": 1000000.0, "base_currency": "USD" }
+}

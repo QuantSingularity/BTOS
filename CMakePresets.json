@@ -1,0 +1,53 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "debug",
+      "binaryDir": "build/debug",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "BTOS_DEBUG_ACCOUNTING": "ON"
+      }
+    },
+    {
+      "name": "release",
+      "binaryDir": "build/release",
+      "generator": "Ninja",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+    },
+    {
+      "name": "relwithdebinfo",
+      "binaryDir": "build/relwithdebinfo",
+      "generator": "Ninja",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "RelWithDebInfo" }
+    },
+    {
+      "name": "asan",
+      "binaryDir": "build/asan",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "BTOS_SANITIZE_ADDRESS": "ON",
+        "BTOS_DEBUG_ACCOUNTING": "ON",
+        "BTOS_BUILD_BENCH": "OFF"
+      }
+    },
+    {
+      "name": "tsan",
+      "binaryDir": "build/tsan",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "BTOS_SANITIZE_THREAD": "ON",
+        "BTOS_BUILD_BENCH": "OFF"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "debug", "configurePreset": "debug" },
+    { "name": "release", "configurePreset": "release" },
+    { "name": "asan", "configurePreset": "asan" },
+    { "name": "tsan", "configurePreset": "tsan" }
+  ]
+}
