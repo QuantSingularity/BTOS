@@ -1,0 +1,152 @@
+# ---------------------------------------------------------------------------
+# BTOS .gitignore
+# C++20 / CMake / Ninja core, pybind11 bindings, Streamlit app
+# ---------------------------------------------------------------------------
+
+# --- Build output (CMake presets: build/<preset>, build/py, build/clang) ---
+/build/
+/build-*/
+/out/
+/cmake-build-*/
+/install/
+
+# --- CMake in-source artifacts (if configured outside the presets) ---
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+CMakeUserPresets.json
+cmake_install.cmake
+CTestTestfile.cmake
+install_manifest.txt
+Testing/
+_deps/
+compile_commands.json
+.ninja_deps
+.ninja_log
+build.ninja
+rules.ninja
+btosConfig.cmake
+btosConfigVersion.cmake
+
+# --- Compiled objects, libraries and executables ---
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.pyd
+*.exe
+*.out
+*.gch
+*.pch
+
+# --- Sanitizer, profiler, coverage and debugger output ---
+*.gcda
+*.gcno
+*.gcov
+*.profraw
+*.profdata
+callgrind.out.*
+perf.data*
+vgcore.*
+# Crash dumps: anchored/numbered so include/btos/core and src/core stay tracked
+/core
+core.[0-9]*
+*.dSYM/
+coverage/
+lcov.info
+
+# --- Benchmark output ---
+/bench/*.json
+/bench/results/
+
+# --- BTOS runtime artifacts (CLI, demo.sh, Python API, Streamlit) ---
+# Generated datasets and event logs
+*.btosd
+*.log
+# Experiment stores (SQLite or JSONL)
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+experiments.jsonl
+# Local data directory referenced by configs/*.json ("data/syn.btosd")
+/data/
+# Local run outputs; the checked-in configs/ and tests/fixtures/ stay tracked
+/runs/
+/results/
+/reports/
+/report.html
+/metrics.json
+/run.json
+/opt.json
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.ipynb_checkpoints/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+.eggs/
+dist/
+wheels/
+pip-wheel-metadata/
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# --- Streamlit local state and secrets ---
+.streamlit/secrets.toml
+.streamlit/cache/
+
+# --- Editors and IDEs ---
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.code-workspace
+.vs/
+*.swp
+*.swo
+*~
+.clangd/
+.cache/
+tags
+.tags
+cscope.*
+
+# --- OS files ---
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# --- Archives and temp files ---
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.bak
+*.tmp
+*.orig
+*.rej
